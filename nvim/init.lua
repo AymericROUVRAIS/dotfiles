@@ -1,10 +1,11 @@
 require("core.keymaps")
-require("core.plugins")
-require("core.plugins_config")
-require("core.plugins_config.autopairs")
+require("core.lazy")
+
+-- Set colors
+vim.opt.termguicolors = true
+vim.cmd("colorscheme catppuccin-mocha")
 
 -- make Nvim transparent
-vim.opt.termguicolors = true
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
 vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
