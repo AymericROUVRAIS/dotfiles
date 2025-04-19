@@ -15,5 +15,10 @@ vim.opt.rtp:prepend(lazypath)
 
 
 -- Plugins
-require('lazy').setup("core.plugins_config")
+require("lazy").setup("core.plugins_config")
+require("luasnip").config.set_config({
+  -- Enable autotriggered snippets
+  enable_autosnippets = true,
+  store_selection_keys = "<Tab>",
+})
 

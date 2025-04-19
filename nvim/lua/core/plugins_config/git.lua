@@ -8,42 +8,42 @@ return {
   config = function()
     require("gitsigns").setup({
       signs = {
-add = { text = "+" }, -- Green for added lines
+        add = { text = "+" }, -- Green for added lines
         change = { text = "~" }, -- Yellow for modified lines
         delete = { text = "-" }, -- Red for deleted lines
       },
+
       numhl = false, -- Disable line number highlights
       linehl = false, -- Disable line background highlights
       current_line_blame = true, -- Show git blame inline
+      word_diff = true,
+
+      -- Keymaps
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
         vim.keymap.set(
           "n", "<leader>gp", 
           gs.preview_hunk, 
-          { buffer = bufnr, desc = "Preview Git Hunk" })
+          {buffer=bufnr, desc="Preview Git Hunk"}
+        )
 
         vim.keymap.set(
-        "n", "<leader>gb", 
-        gs.toggle_current_line_blame, 
-        { buffer = bufnr, desc = "Toggle Line Blame" })
+        "n", "<leader>gb",
+         gs.toggle_current_lineblame,
+         {buffer=bufnr, desc="Toggle Line Blame"}
+        )
+        
+        vim.keymap.set(
+          "n", "<leader>gg", 
+          gs.toggle_word_diff,
+          {buffer=bufnr, desc="Toggle Word Diff"}
+        )
 
       end
+
     })
   end
-  },
-
+},
   
-  -- Diff view
-  {
-  "sindrets/diffview.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  cmd = { 
-    "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" 
-    },
-
-  config = function()
-    require("diffview").setup({})
-  end
-  }
 }
 

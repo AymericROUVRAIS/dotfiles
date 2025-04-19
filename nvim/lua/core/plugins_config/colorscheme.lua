@@ -5,7 +5,14 @@ return {
   name = "catppuccin",
   config = function()
     require("catppuccin").setup({
-      flavour = "mocha"
+      flavour = "mocha",
+      custom_highlights = function(colors)
+        return {
+          -- Changing line number
+          LineNr = { fg = colors.overlay2 },
+        }
+      end
+
     })
   end
   }
