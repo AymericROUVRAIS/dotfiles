@@ -165,9 +165,9 @@ xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
 nitrogen --restore &
-# bash ~/.fehbg & need to change "custom" bg first
+# bash ~/.fehbg & # need to change "custom" bg first
 
-# Start mpd
+# Start mpd, music player
 exec mpd &
 
 # Start bspwm scripts

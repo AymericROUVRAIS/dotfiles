@@ -1,5 +1,13 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+return{ 
+  -- File tree
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    requires = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+        require("nvim-tree").setup {}
+    end,
+}
 
-require('nvim-tree').setup()
-vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')

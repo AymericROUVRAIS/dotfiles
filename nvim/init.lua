@@ -5,7 +5,10 @@ require("core.snippets")
 
 -- Set colors
 vim.opt.termguicolors = true
-vim.cmd("colorscheme catppuccin-frappe")
+
+-- To disable netrw properly
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- make Nvim transparent
 -- vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
