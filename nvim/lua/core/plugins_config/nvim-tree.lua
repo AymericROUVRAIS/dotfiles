@@ -1,13 +1,14 @@
-return{ 
-  -- File tree
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = false,
-    requires = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-        require("nvim-tree").setup {}
-    end,
+return {
+     "nvim-tree/nvim-tree.lua",
+     version = "*",
+     lazy = false,
+     dependencies = {
+       "nvim-tree/nvim-web-devicons",
+     },
+     config = function()
+       require("nvim-tree").setup {}
+       
+       -- Keymaps
+       vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
+     end,
 }
-

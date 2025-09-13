@@ -1,10 +1,9 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    'nvim-treesitter/nvim-treesitter',
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = "all",
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = {'lua', 'python', 'c', 'java'},
         highlight = { enable = true },
         indent = { enable = true },
       })

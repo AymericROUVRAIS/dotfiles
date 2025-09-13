@@ -5,6 +5,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.ignorecase = true -- ignore case when searching
 vim.opt.smartcase = true  -- except if cap. in search
 
+-- Remove syntaxe hightlighting (after search)
 vim.opt.hlsearch = false
 
 vim.opt.backspace = "2"
