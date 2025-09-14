@@ -1,90 +1,23 @@
-##---------- Keybindings for bspwm ----------##
+# Close App 
+super + c
+  bspc node -c
+
+# Force close App
+super + shift + c
+	bspc node -k
+
+
 # Kill desktop
 super + alt + Escape
 	bspc quit
 
 # Terminal (alacritty)
 super + Return
-	bspterm
+	alacritty
 
-# Terminal (floating)
-super + Enter
-  alacritty
-# Terminal (fullscreen)
-super + alt + Return
-	bspterm --full
-
-##---------- Rofi Launcher & Menus ----------##
-
-# Rofi App Launcher
-alt + F1
-	rofi_launcher
-
-# Rofi Run
-alt + F2
-	rofi_runner
-
-# Rofi Menus/Applets
-super + {b,n,r,s,t,x}
-	{rofi_bluetooth,nmd,rofi_asroot,rofi_screenshot,rofi_themes,rofi_powermenu}
-
-##---------- Applications ----------##
-
-# Launch Apps
-super + shift + {e,f}
-	{thunar,firefox}
-
-# Terminal Apps
-ctrl + alt + {v,r,h}
-	alacritty --config-file ~/.config/bspwm/alacritty/alacritty.toml -e {nvim,ranger,htop}
-
-# Color Picker
-super + p
-	bspcolorpicker
-
-# Lockscreen
-ctrl + alt + l
-    betterlockscreen --lock
-
-##---------- System Keys ----------##
-
-# Take a screenshot
-Print
-	bspscreenshot --now
-	
-# Take screenshot of area
-super + Print
-	bspscreenshot --area
-
-# Brighness control
-XF86MonBrightness{Up,Down}
-	bspbrightness{ --inc, --dec}
-	
-# Speaker Volume control
-XF86Audio{RaiseVolume,LowerVolume}
-	bspvolume{ --inc, --dec}
-
-# Mic Volume control
-XF86Audio{Mute,MicMute}
-	bspvolume{ --toggle, --toggle-mic}
-	
-# Music control
-XF86Audio{Next,Prev,Play,Stop}
-	mpc {next,prev,toggle,stop}
-
-##---------- Bspwm ----------##
-
-# Hide/Unhide Window
-super + shift + h
-	bspwinmask
-
-# Close App
-super + {_,shift + }c
-	bspc node -{c,k}
-
-# kill window
-ctrl + alt + Escape
-    xkill
+# Terminal (in the same desktop)
+super + shift + Return
+  alacritty --class "AlacrittyOverride"
 
 # Quit/Restart bspwm
 ctrl + shift + {q,r}
@@ -92,19 +25,98 @@ ctrl + shift + {q,r}
 	
 # Reload Keybindings
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -x sxhkd; sxhkd &
+# can also use : pkill -USR1 -x sxhkd
 
+
+
+
+##---------- Rofi Launcher & Menus ----------##
+
+# Rofi App Launcher
+alt + F1
+	rofi -show run
+
+# Rofi Powermenu
+super + x
+ ~/.config/rofi/scripts/rofi_powermenu.sh
+
+# Rofi Windows
+super + Tab
+  rofi -show window
+
+
+##---------- Applications ----------##
+
+# Launch Apps
+super + {e,f}
+	{thunar,firefox}
+
+# Terminal Apps
+ctrl + alt + {r,h}
+	alacritty --class "AlacrittyOverrideUtils" -e {ranger,htop}
+
+# Lockscreen
+ctrl + alt + l
+    betterlockscreen --lock
+
+# Screenshot
+super + shift + s
+  flameshot gui
+
+
+##---------- System Keys ----------##
+
+# Brighness control
+XF86MonBrightness{Up,Down}
+  brightnessctl set {+10%, 10%-}
+	
+# Speaker Volume control
+XF86Audio{RaiseVolume,LowerVolume}
+  pulsemixer --unmute --change-volume {+,-}5
+
+# Mic Volume control
+XF86AudioMute
+  pulsemixer --toggle-mute
+	
+# Music control
+XF86Audio{Next,Prev,Play,Stop}
+	mpc {next,prev,toggle,stop}
+
+
+
+
+
+##---------- Bspwm controls ----------##
+
+# Hide/Unhide Window
+super + shift + h
+	bspwinmask
+
+# Go to last workspace
+super + twosuperior
+	bspc desktop -f last
+
+# Switch workspace or Send focused Node to another workspace
+# {1-8} = {ampersand,eacute,quotedbl,...}
+super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}
+	bspc {desktop -f,node -d} '^{1-8}' '--follow'
+
+
+## Switch directionally ##
 # Switch workspace
 ctrl + alt + {Left,Right}
 	bspc desktop -f {prev.local,next.local}
 
-# Switch workspace or Send focused Node to another workspace
-super + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}' '--follow'
-
-# Send focused Node to workspace directionally
+# Send focused Node
 super + ctrl + {Left,Right}
 	bspc node -d {prev,next} '--follow'
+
+
+## Window management ##
+# Change focus to next window, including floating window
+alt + {_,shift + }Tab
+	bspc node -f {next.local,prev.local}
 
 # Change focus of the Node or Swap Nodes
 super + {_,shift + }{Left,Down,Up,Right}
@@ -134,6 +146,11 @@ super + ctrl + 0
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
+
+
+
+## ------------ Layout --------------- ##
+
 # Toggle Layout (Tiled/Monocle)
 super + l
 	bspc desktop -l next
@@ -153,13 +170,3 @@ super + shift + space
 # Set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
-
-# Change focus to next window, including floating window
-alt + {_,shift + }Tab
-	bspc node -f {next.local,prev.local}
-
-# Switch to last opened workspace
-super + {Tab,grave}
-	bspc {node,desktop} -f last
-
-##---------- EOF ----------##
