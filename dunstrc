@@ -1,6 +1,9 @@
 # See dunst(5) for all configuration options
 
 [global]
+    # Defining icon font :
+    font = Symbols Nerd Font 14
+
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
@@ -77,7 +80,7 @@
     # notifications.
     # Set to 0 to disable.
     # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 4
 
     # Padding between text and separator.
     padding = 8
@@ -185,7 +188,8 @@
     stack_duplicates = true
 
     # Hide the count of stacked notifications with the same content
-    hide_duplicate_count = false
+    # useful for volume and brightness bars
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -207,14 +211,15 @@
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
   # max_icon_size takes precedence over this.
-    min_icon_size = 32
+    min_icon_size = 16
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 32
 
     # Paths to default icons (only necessary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
+      icon_path = /usr/share/icons/Adwaita
+    # default : /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+# try : /usr/share/fonts/WOFF2/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
