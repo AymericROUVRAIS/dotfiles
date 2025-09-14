@@ -1,5 +1,14 @@
 
-## ENVIRONMENT ----------------------------------------------------
+## Live config reload
+general.live_config_reload = true
+
+## Offer IPC using alacritty msg
+general.ipc_socket = true
+
+## GENERAL --------------------------------------------------------
+
+## Import additional configuration files.
+general.import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml", "~/.config/alacritty/colorschemes/horizondark.toml" ]## ENVIRONMENT ----------------------------------------------------
 
 ## All key-value pairs in the [env] section will be added as environment variables for any process spawned
 ## by Alacritty, including its shell. Some entries may override variables set by alacritty itself.
@@ -12,7 +21,7 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 position = "None"
 dynamic_padding = true
 decorations = "full"
-opacity = 0.8
+opacity = 1.0
 blur = true
 startup_mode = "Windowed"
 dynamic_title = true
@@ -38,7 +47,7 @@ multiplier = 3
 [bell]
 animation = "Linear"
 duration = 20
-command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
+command = { program = "paplay", args = ["~/.config/alacritty/device-added.oga"] }
 
 ## SELECTION ------------------------------------------------------
 [selection]
@@ -80,7 +89,6 @@ print_events = false
 highlight_damage = false
 prefer_egl = false
 
-[general]
 
 ## You can set shell.program to the path of your favorite shell, e.g. /bin/zsh.
 ## Entries in shell.args are passed as arguments to the shell.
@@ -90,17 +98,4 @@ prefer_egl = false
 ## the working directory of the parent process will be used.
 #working_directory = "None"
 
-## Live config reload
-general.live_config_reload = true
 
-## Offer IPC using alacritty msg
-general.ipc_socket = true
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## Configuration for Alacritty, the GPU enhanced terminal emulator.
-## It's a very basic and simple config file, for full configuration, Run `man 5 alacritty`
-
-## GENERAL --------------------------------------------------------
-
-## Import additional configuration files.
-general.import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml", "~/.config/alacritty/colorschemes/horizondark.toml" ]
