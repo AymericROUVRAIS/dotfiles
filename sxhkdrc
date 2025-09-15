@@ -39,7 +39,7 @@ alt + F1
 
 # Rofi Powermenu
 super + x
- ~/.config/rofi/scripts/rofi_powermenu.sh
+ ~/.local/bin/rofi_powermenu.sh
 
 # Rofi Windows
 super + Tab
