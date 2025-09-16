@@ -39,7 +39,7 @@ alt + F1
 
 # Rofi Powermenu
 super + x
- ~/.local/bin/rofi_powermenu.sh
+ ~/.local/bin/powermenu.sh
 
 # Rofi Windows
 super + Tab
@@ -69,16 +69,16 @@ super + shift + s
 
 # Brighness control
 XF86MonBrightness{Up,Down}
-  brightnessctl set {+10%, 10%-}
+  .local/bin/brightness_change.sh {up,down}
 	
 # Speaker Volume control
-XF86Audio{RaiseVolume,LowerVolume}
-  pulsemixer --unmute --change-volume {+,-}5
+XF86Audio{Raise,Lower}Volume
+  .local/bin/volumev2.sh {up,down}
 
 # Mic Volume control
 XF86AudioMute
-  pulsemixer --toggle-mute
-	
+  .local/bin/volumev2.sh mute
+
 # Music control
 XF86Audio{Next,Prev,Play,Stop}
 	mpc {next,prev,toggle,stop}

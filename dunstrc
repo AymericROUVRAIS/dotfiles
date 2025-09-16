@@ -57,7 +57,7 @@
     progress_bar_max_width = 300
 
     # Corner radius for the progress bar
-    progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 15
 
     # Define which corners to round when drawing the progress bar
     # is set to 0 this option will be ignored.
@@ -88,7 +88,7 @@
     # Padding between text and icon.
     text_icon_padding = 5
 
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window
     frame_color = "#aaaaaa"
@@ -322,9 +322,9 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
-    timeout = 10
+    background = "#2e3440"
+    foreground = "#76b5c5"
+    timeout = 1000
     # Icon for notifications with low urgency
     default_icon = dialog-information
 
@@ -344,6 +344,33 @@
     override_pause_level = 60
     # Icon for notifications with critical urgency
     default_icon = dialog-warning
+
+
+
+
+## Custom Rules :
+
+[rule_sound]
+    icon = "volume-high"
+    origin = center
+    font = Symbols Nerd Font 20
+
+[rule_sound_over]
+    icon = "volume-high-crit"
+    origin = center
+    font = Symbols Nerd Font 20
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+
+[rule_sound_mute]
+    icon = "volume-mute"
+    origin = center
+
+[rule_brightness]
+    appname = "brightness"
+    origin = center
+
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -473,3 +500,4 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
