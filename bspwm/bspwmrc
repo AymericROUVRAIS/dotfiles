@@ -107,7 +107,7 @@ System-config-printer.py Pavucontrol Exo-helper-1 \
 Xfce4-power-manager-settings 'VirtualBox Manager' Gparted)
 for i in ${settings[@]}; do
    bspc rule -a $i desktop='^8' state=floating follow=on focus=on; done
-# Open htop and ranger
+# htop and ranger from terminal
 bspc rule -a AlacrittyOverrideUtils desktop='^8' follow=on focus=on
 
 
@@ -122,18 +122,32 @@ for i in ${floating[@]}; do
 bspc rule -a Conky state=floating manage=off
 bspc rule -a stalonetray state=floating manage=off
 
+# Polybar : to remove border shadow
+bspc rule -a Polybar desktop=^1 state=floating border=off
+
 
 
 # OnStart apps -------------------------------------------------
-pgrep -x sxhkd > /dev/null || sxhkd &
-$HOME/.config/polybar/launch.sh
-xsetroot -cursor_name left_ptr
-exec mpd & 
+if lsusb | grep -iq "keyboard"; then
+  # Launch openrgb
+  openrgb -p blue &
+fi
 
-## xrandr ... --same-as to copy screen
-xrandr --output eDP-1 --scale 1.1 \
-  --output HDMI-1 --scale 1.0 --left-of eDP-1
+pgrep -x sxhkd > /dev/null || sxhkd &
+xsetroot -cursor_name left_ptr
+
+# Set screens
+# xrandr ... --same-as to copy screen
+num_screen = $(xrandr --listmonitors | grep -oP '\d' | head -n 1)
+if (num_screen -ge 2); then
+xrandr --output eDP-1 --mode 1366x768 --scale 0.85 \
+  --output HDMI-1 --scale 1.0 --auto --left-of eDP-1
+else
+xrandr --output eDP-1 --mode 1366x768 --scale 1.1
+fi
+
 picom -b
+$HOME/.config/polybar/themes/ricing/launch.sh &
 feh --randomize --bg-scale /usr/share/backgrounds/*
 # Make Super_L open rofi_launcher when tapped alone
 xcape -e 'Super_L=Alt_L|F1' &
@@ -142,4 +156,5 @@ xcape -e 'Super_R=Alt_L|F1' &
 xfce4-power-manager &
 # Notification daemon
 dunst &
+
 

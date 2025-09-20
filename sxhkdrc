@@ -81,9 +81,19 @@ XF86AudioMute
 
 # Music control
 XF86Audio{Next,Prev,Play,Stop}
-	mpc {next,prev,toggle,stop}
+	playerctl {next,previous,play-pause,stop}
 
 
+super + space
+    playerctl play-pause
+
+# Next track
+super + shift + n
+    playerctl next
+
+# Previous track
+super + shift + p
+    playerctl previous
 
 
 
