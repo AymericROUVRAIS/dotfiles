@@ -13,10 +13,10 @@ return {
         delete = { text = "-" }, -- Red for deleted lines
       },
 
-      numhl = false, -- Disable line number highlights
-      linehl = false, -- Disable line background highlights
+      numhl = true, -- Show line number highlights
+      linehl = true, -- Show line background highlights
       current_line_blame = true, -- Show git blame inline
-      word_diff = true,
+      word_diff = false, -- Disable word difference
 
       -- Keymaps
       on_attach = function(bufnr)
