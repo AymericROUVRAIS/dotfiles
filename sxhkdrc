@@ -49,7 +49,7 @@ super + Tab
 ##---------- Applications ----------##
 
 # Launch Apps
-super + {e,f}
+super + shift + {e,f}
 	{thunar,firefox}
 
 # Terminal Apps
