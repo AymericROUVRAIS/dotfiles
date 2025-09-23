@@ -1,11 +1,7 @@
 #! /bin/sh
 
 
-## Bspwm config directory
-BSPDIR="$HOME/.config/bspwm"
-
 ## Export bspwm/bin dir to PATH
-export PATH="${PATH}:$BSPDIR/scripts"
 export XDG_CURRENT_DESKTOP='bspwm'
 
 ## Run java applications without issues
@@ -31,26 +27,26 @@ if xrandr -q | grep -q "HDMI-1 connected"; then
     bspc monitor "eDP-1" -d '' '' '' ''
     bspc wm -O "HDMI-1" "eDP-1"
 else
-    bspc monitor "eDP-1" -d '' '' '' '' '' '' '' ''
+    bspc monitor "eDP-1" -d '1' '2' '3' '4' '5'
 fi
 
 
 # BSPWM Configuration
-bspc config border_width        2
-bspc config window_gap          10
-bspc config split_ratio         0.50
+bspc config border_width          2
+bspc config window_gap            10
+bspc config split_ratio           0.50
 
 bspc config focused_border_color  "$BSPWM_FBC"
 bspc config normal_border_color   "$BSPWM_NBC"
 bspc config active_border_color   "$BSPWM_ABC"
 bspc config presel_feedback_color "$BSPWM_PFC"
 
-bspc config borderless_monocle true
-bspc config gapless_monocle true
-bspc config paddingless_monocle true
-bspc config single_monocle false
+bspc config borderless_monocle    true
+bspc config gapless_monocle       true
+bspc config paddingless_monocle   true
+bspc config single_monocle        false
 bspc config focus_follows_pointer true
-bspc config presel_feedback true
+bspc config presel_feedback       true
 
 # Manage all the unmanaged windows remaining from a previous session.
 bspc wm --adopt-orphans
@@ -72,10 +68,10 @@ bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 ## 2 > code
 declare -a code=(code-oss neovim arduino-ide)
 for i in ${code[@]}; do
-   bspc rule -a $i desktop='^2' follow=on focus=on; done
+   bspc rule -a $i desktop='^1' follow=on focus=on; done
 
 ## 3 > web
-bspc rule -a firefox desktop='^3' follow=on focus=on
+bspc rule -a firefox desktop='^2' follow=on focus=on
 
 ## 4 > files
 declare -a files=(Pcmanfm Thunar qBittorrent)
@@ -87,28 +83,28 @@ declare -a office=(Gucharmap Atril Evince \
 libreoffice-writer libreoffice-calc libreoffice-impress \
 libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice onlyoffice-desktopeditors)
 for i in ${office[@]}; do
-   bspc rule -a $i desktop='^5' follow=on focus=on; done
+   bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 ## 6 > communication
-bspc rule -a warpinator desktop='^6' follow=on focus=on
-bspc rule -a thunderbird desktop='^6' follow=on focus=on
-bspc rule -a discord desktop='^6' follow=on focus=on
+bspc rule -a warpinator desktop='^5' follow=on focus=on
+bspc rule -a thunderbird desktop='^5' follow=on focus=on
+bspc rule -a discord desktop='^5' follow=on focus=on
 # Don't follow when discord opens
 bspc rule -a discord:discord state=floating follow=off window_type=dialog
 
 ## 7 > media
 declare -a media=(Audacity Deezer Music MPlayerc Inkscape Gimp)
 for i in ${media[@]}; do
-   bspc rule -a $i desktop='^7' state=floating follow=on focus=on; done
+   bspc rule -a $i desktop='^5' state=floating follow=on focus=on; done
 
 ## 8 > system
 declare -a settings=(Lxappearance Lxtask Lxrandr Arandr \
 System-config-printer.py Pavucontrol Exo-helper-1 \
 Xfce4-power-manager-settings 'VirtualBox Manager' Gparted)
 for i in ${settings[@]}; do
-   bspc rule -a $i desktop='^8' state=floating follow=on focus=on; done
+   bspc rule -a $i desktop='^5' state=floating follow=on focus=on; done
 # htop and ranger from terminal
-bspc rule -a AlacrittyOverrideUtils desktop='^8' follow=on focus=on
+bspc rule -a AlacrittyOverrideUtils desktop='^5' follow=on focus=on
 
 
 
@@ -123,7 +119,7 @@ bspc rule -a Conky state=floating manage=off
 bspc rule -a stalonetray state=floating manage=off
 
 # Polybar : to remove border shadow
-bspc rule -a Polybar desktop=^1 state=floating border=off
+# bspc rule -a Polybar desktop=^1 state=floating border=off
 
 
 
@@ -138,12 +134,11 @@ xsetroot -cursor_name left_ptr
 
 # Set screens
 # xrandr ... --same-as to copy screen
-num_screen = $(xrandr --listmonitors | grep -oP '\d' | head -n 1)
-if (num_screen -ge 2); then
-xrandr --output eDP-1 --mode 1366x768 --scale 0.85 \
-  --output HDMI-1 --scale 1.0 --auto --left-of eDP-1
+if xrandr -q | grep -q "HDMI-1 connected"; then
+  xrandr --output eDP-1 --mode 1366x768 --scale 0.85 \
+    --output HDMI-1 --scale 1.0 --auto --left-of eDP-1
 else
-xrandr --output eDP-1 --mode 1366x768 --scale 1.1
+  xrandr --output eDP-1 --mode 1366x768 --scale 1.1
 fi
 
 picom -b
