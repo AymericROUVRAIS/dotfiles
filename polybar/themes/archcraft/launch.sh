@@ -6,23 +6,6 @@ INTERFACE="$(ip link | awk '/state UP/ {print $2}' | tr -d :)"
 BAT="$(acpi -b)"
 RFILE="$DIR/.module"
 
-# Fix backlight and network modules
-fix_modules() {
-	if [[ -z "$CARD" ]]; then
-		sed -i -e 's/backlight/bna/g' "$DIR"/config.ini
-	elif [[ "$CARD" != *"intel_"* ]]; then
-		sed -i -e 's/backlight/brightness/g' "$DIR"/config.ini
-	fi
-
-	if [[ -z "$BAT" ]]; then
-		sed -i -e 's/battery/btna/g' "$DIR"/config.ini
-	fi
-
-	if [[ "$INTERFACE" == e* ]]; then
-		sed -i -e 's/network/ethernet/g' "$DIR"/config.ini
-	fi
-}
-
 # Launch the bar
 launch_bar() {
 	# Terminate already running bar instances

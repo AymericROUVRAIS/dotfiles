@@ -32,7 +32,7 @@ set_values() {
 
 ## Launch Polybar with selected style
 launch_bar() {
-	bash "$HOME"/.config/bspwm/themes/"$STYLE"/polybar/launch.sh
+	bash "$HOME"/.config/polybar/launch.sh
 }
 
 # Execute functions

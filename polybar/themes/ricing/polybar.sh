@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-
 ## Files and Directories
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 SFILE="$DIR/system.ini"
@@ -34,13 +32,13 @@ set_values() {
 
 ## Launch Polybar with selected style
 launch_bar() {
-	bash "$HOME"/.config/bspwm/themes/"$STYLE"/polybar/launch.sh
+	bash "$HOME"/.config/polybar/launch.sh
 }
 
 # Execute functions
-if [[ ! -f "$RFILE" ]]; then
-	get_values
-	set_values
-	touch ${RFILE}
-fi
+# if [[ ! -f "$RFILE" ]]; then
+# 	get_values
+# 	set_values
+# 	touch ${RFILE}
+# fi
 launch_bar
