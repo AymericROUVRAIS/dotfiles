@@ -58,7 +58,7 @@ ctrl + alt + {r,h}
 
 # Lockscreen
 ctrl + alt + l
-    betterlockscreen --lock
+  betterlockscreen --lock
 
 # Screenshot
 super + shift + s
@@ -101,7 +101,7 @@ super + shift + p
 
 # Hide/Unhide Window
 super + shift + h
-	bspwinmask
+  ~/.local/bin/window_hide.sh
 
 # Go to last workspace
 super + twosuperior
@@ -110,7 +110,7 @@ super + twosuperior
 # Switch workspace or Send focused Node to another workspace
 # {1-8} = {ampersand,eacute,quotedbl,...}
 super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}
-	bspc {desktop -f,node -d} '^{1-8}' '--follow'
+  bspc {desktop -f,node -d} '^{1-8}' '--follow'
 
 
 ## Switch directionally ##
@@ -167,15 +167,15 @@ super + l
 
 # Toggle Fullscreen
 super + f
-    bspc node -t "~"fullscreen
+  bspc node -t "~"fullscreen & ~/.local/bin/alacritty_transparency.sh
 
 # Toggle beetwen floating & tiled
 super + space
-    bspc node -t "~"{floating,tiled}
+  bspc node -t "~"{floating,tiled}
 
 # Pseudo Tiled & tiled mode
 super + shift + space
-    bspc node -t "~"{pseudo_tiled,tiled}
+  bspc node -t "~"{pseudo_tiled,tiled}
 
 # Set the node flags
 super + ctrl + {m,x,y,z}
