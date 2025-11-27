@@ -6,9 +6,9 @@ These are my config files for Arch Linux.
 
 A couple of programms should be installed for this to work:
 
--[] Bspwm and polybar
--[] Alacritty with zsh
--[] Neovim and a couple of dependecies for the packages:
+[] Bspwm and polybar
+[] Alacritty with zsh
+[] Neovim and a couple of dependecies for the packages:
   - TODO
 
 For latex (also needed for Neovim config):
@@ -26,3 +26,4 @@ I also use :
 - onlyoffice
 - drawio
 - atril
+- autocpufreq
