@@ -100,7 +100,7 @@ for i in ${files[@]}; do
    bspc rule -a $i desktop="$r4" follow=on focus=on; done
 
 ## 5 > office and docs
-declare -a office=(Gucharmap Atril Evince \
+declare -a office=(Gucharmap Atril Evince Drawio \
 libreoffice-writer libreoffice-calc libreoffice-impress \
 libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice onlyoffice-desktopeditors ONLYOFFICE)
 for i in ${office[@]}; do
@@ -108,7 +108,7 @@ for i in ${office[@]}; do
 
 ## 6 > communication
 bspc rule -a warpinator desktop="$r6" follow=on focus=on
-bspc rule -a thunderbird desktop="$r6" follow=on focus=on
+bspc rule -a Thunderbird desktop="$r6" follow=on focus=on
 bspc rule -a discord desktop="$r6" follow=on focus=on
 # Don't follow when discord opens
 bspc rule -a discord:discord state=floating follow=off window_type=dialog
