@@ -27,3 +27,10 @@ vim.opt.expandtab = true
 vim.wo.relativenumber = true
 vim.wo.number = true
 
+-- Remove auto commenting on newline
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt.formatoptions:remove({ "r", "o" })
+  end,
+})

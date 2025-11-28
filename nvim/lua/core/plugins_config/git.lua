@@ -13,14 +13,17 @@ return {
         delete = { text = "-" }, -- Red for deleted lines
       },
 
-      numhl = true, -- Show line number highlights
-      linehl = true, -- Show line background highlights
+      numhl = false, -- Disable line number highlights
+      linehl = false, -- Disable line background highlights
       current_line_blame = true, -- Show git blame inline
-      word_diff = false, -- Disable word difference
+      word_diff = true,
 
       -- Keymaps
       on_attach = function(bufnr)
-        local gs = package.loaded.gitsigns
+        local gs = require("gitsigns")
+        local function map(mode, lhs, rhs, desc)
+          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
+        end
         vim.keymap.set(
           "n", "<leader>gp", 
           gs.preview_hunk, 
@@ -29,7 +32,7 @@ return {
 
         vim.keymap.set(
         "n", "<leader>gb",
-         gs.toggle_current_lineblame,
+         gs.toggle_current_line_blame,
          {buffer=bufnr, desc="Toggle Line Blame"}
         )
         
