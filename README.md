@@ -2,14 +2,15 @@
 
 These are my config files for Arch Linux.
 
-## Prerequisites
+## Programms in the config
 
-A couple of programms should be installed for this to work:
+A couple of programms should be installed for this to work. This can
+be done by hand or with the `install.sh` script.
 
 - Bspwm and polybar
 -  Alacritty with zsh
 - Neovim and a couple of dependecies for the packages:
-  - TODO
+  - latex packages
 - Brightnessctl and pulsemixer
 
 For latex (also needed for Neovim config):
