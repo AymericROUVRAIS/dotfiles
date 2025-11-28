@@ -23,6 +23,7 @@ packages="bspwm zsh alacritty neovim polybar brightnessctl \
   pulsemixer openfortivpn onlyoffice-bin drawio-desktop dunst \
   texlive-most texlive-langfrench"
 directories="nvim alacritty bspwm polybar"
+config_files="dunst sxhkd"
 
 # Installing the packages
 echo
@@ -36,14 +37,41 @@ for dir in $directories; do
     echo "Creating config directory for $dir..."
     mkdir -p $HOME/.config/$dir
   else
-    echo "Directory $dir already exists"
+    echo "${GREEN}->${NC} Directory $dir already exists"
   fi
 done
 
 for dir in $directories; do
-  echo "Linking the directories to ${GREEN}dotfiles${NC} repository"
+  echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
   ln -sf ./$dir ~/.config/$dir
 done
+
+# There is now left: dunstrc, .zshrc, sxhdrc
+echo
+for conf in $config_files; do
+  if [ ! -d $HOME/.config/$dir ]; then
+    echo "Creating config directory for $dir..."
+    mkdir -p $HOME/.config/$dir
+  else
+    echo "${GREEN}->${NC} Directory $dir already exists"
+  fi
+done
+
+
+# Linking config directories and files
+for dir in $directories; do
+  if [ ! -d $HOME./.config/$dir]; then
+    echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
+    ln -sf ./$dir ~/.config/$dir
+  fi
+done
+
+ln -sf ./sxhdrc $HOME/.config/sxhkd/sxhkdrc
+ln -sf ./dunstrc $HOME/.config/dunst/dunstrc
+ln -sf ./.zshrc $HOME/.zshrc
+
+echo
+echo "Done linking files/directories"
 
 echo
 echo "----------------------------------"
