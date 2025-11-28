@@ -16,7 +16,7 @@ echo"\_| |_/\_| \_| \____/\_| |_/${NC}"
 echo
 echo "----------------------------------"
 echo
-echo "${GREEN}Installing the full Arch config${NC}"
+echo "${GREEN}Installation the full Arch config${NC}"
 
 # Variables for shorter commands
 packages="bspwm zsh alacritty neovim polybar brightnessctl \
@@ -25,18 +25,28 @@ packages="bspwm zsh alacritty neovim polybar brightnessctl \
 directories="nvim alacritty bspwm polybar"
 
 # Installing the packages
+echo
+echo "Installing/updating the packages"
 sudo pacman -Syu --noconfirm $packages
 
 echo "----------------------------------"
 
 for dir in $directories; do
-  echo "Creating config directory for $dir..."
-  mkdir -p ~/.config/$dir
+  if [ ! -d $HOME/.config/$dir ]; then
+    echo "Creating config directory for $dir..."
+    mkdir -p $HOME/.config/$dir
+  else
+    echo "Directory $dir already exists"
+  fi
 done
 
 for dir in $directories; do
   echo "Linking the directories to ${GREEN}dotfiles${NC} repository"
-  ln -s ./$dir ~/.config/$dir
+  ln -sf ./$dir ~/.config/$dir
 done
 
+echo
+echo "----------------------------------"
+echo -e "${GREEN}Done${NC}"
+echo
 
