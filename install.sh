@@ -1,0 +1,96 @@
+#!/bin/bash
+
+# Install script to install everything automatically
+
+RED='\033[0;31m'
+GREEN='\e[32m'
+NC='\033[0m' # No Color
+
+echo -e "${RED}  ___  ______  _____  _   _ "
+echo" / _ \ | ___ \/  __ \| | | |"
+echo"/ /_\ \| |_/ /| /  \/| |_| |"
+echo"|  _  ||    / | |    |  _  |"
+echo"| | | || |\ \ | \__/\| | | |"
+echo"\_| |_/\_| \_| \____/\_| |_/${NC}"
+                            
+echo
+echo "----------------------------------"
+echo
+echo "${GREEN}Installation the full Arch config${NC}"
+
+# Variables for shorter commands
+packages="bspwm zsh alacritty neovim polybar brightnessctl \
+  pulsemixer openfortivpn onlyoffice-bin drawio-desktop dunst \
+  texlive-most texlive-langfrench"
+directories="nvim alacritty bspwm polybar"
+config_files="dunst sxhkd"
+
+# Installing the packages
+echo
+echo "Installing/updating the packages"
+sudo pacman -Syu --noconfirm $packages
+
+echo "----------------------------------"
+
+for dir in $directories; do
+  if [ ! -d $HOME/.config/$dir ]; then
+    echo "Creating config directory for $dir..."
+    mkdir -p $HOME/.config/$dir
+  else
+    echo "${GREEN}->${NC} Directory $dir already exists"
+  fi
+done
+
+for dir in $directories; do
+  echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
+  ln -sf $pwd/$dir ~/.config/$dir
+done
+
+# There is now left: dunstrc, .zshrc, sxhdrc
+echo
+for conf in $config_files; do
+  if [ ! -d $HOME/.config/$dir ]; then
+    echo "Creating config directory for $dir..."
+    mkdir -p $HOME/.config/$dir
+  else
+    echo "${GREEN}->${NC} Directory $dir already exists"
+  fi
+done
+
+
+# Linking config directories and files
+for dir in $directories; do
+  if [ ! -d $HOME$pwd/.config/$dir]; then
+    echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
+    ln -sf $pwd/$dir ~/.config/$dir
+  fi
+done
+
+ln -sf $pwd/sxhdrc $HOME/.config/sxhkd/sxhkdrc
+ln -sf $pwd/dunstrc $HOME/.config/dunst/dunstrc
+ln -sf $pwd/zsh_config/.zshrc $HOME/.zshrc
+
+echo
+echo "Done linking files/directories"
+
+
+# Zsh config : oh-my-zsh
+echo
+echo "Adding zsh plugins"
+
+# zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+  ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+# zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting \
+  ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+
+echo "Adding zsh theme"
+cp $pwd/zsh_config/custom.zsh-theme ~/.oh-my-zsh/themes/
+
+echo
+echo "----------------------------------"
+echo -e "${GREEN}Done${NC}"
+echo
+
