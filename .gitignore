@@ -1,0 +1,3 @@
+# Removing lazy compilation files
+nvim/lazy-lock.json
+
