@@ -1,5 +1,4 @@
 return {
-  {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,  -- important: load this plugin immediately, not lazily
@@ -15,6 +14,5 @@ return {
       })
       vim.cmd.colorscheme("catppuccin")
     end,
-  },
 }
 
