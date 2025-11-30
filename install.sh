@@ -21,7 +21,7 @@ echo "${GREEN}Installation the full Arch config${NC}"
 # Variables for shorter commands
 packages="bspwm zsh alacritty neovim polybar brightnessctl \
   pulsemixer openfortivpn onlyoffice-bin drawio-desktop dunst \
-  texlive-most texlive-langfrench"
+  texlive-most texlive-langfrench atril htop"
 directories="nvim alacritty bspwm polybar"
 config_files="dunst sxhkd"
 
@@ -89,6 +89,17 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting \
 echo "Adding zsh theme"
 cp $pwd/zsh_config/custom.zsh-theme ~/.oh-my-zsh/themes/
 
+
+# alacritty colorscheme
+echo
+echo -e "Adding catppuccin theme to ${GREEN}alacritty${NC}"
+
+curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
+
+
+
+# End of Installation
 echo
 echo "----------------------------------"
 echo -e "${GREEN}Done${NC}"
