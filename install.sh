@@ -7,16 +7,16 @@ GREEN='\e[32m'
 NC='\033[0m' # No Color
 
 echo -e "${RED}  ___  ______  _____  _   _ "
-echo" / _ \ | ___ \/  __ \| | | |"
-echo"/ /_\ \| |_/ /| /  \/| |_| |"
-echo"|  _  ||    / | |    |  _  |"
-echo"| | | || |\ \ | \__/\| | | |"
-echo"\_| |_/\_| \_| \____/\_| |_/${NC}"
+echo " / _ \ | ___ \/  __ \| | | |"
+echo "/ /_\ \| |_/ /| /  \/| |_| |"
+echo "|  _  ||    / | |    |  _  |"
+echo "| | | || |\ \ | \__/\| | | |"
+echo -e "\_| |_/\_| \_| \____/\_| |_/${NC}"
                             
 echo
 echo "----------------------------------"
 echo
-echo "${GREEN}Installation the full Arch config${NC}"
+echo -e "${GREEN}Installation the full Arch config${NC}"
 
 # Variables for shorter commands
 packages="bspwm zsh alacritty neovim polybar brightnessctl \
@@ -43,7 +43,7 @@ done
 
 for dir in $directories; do
   echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
-  ln -sf $pwd/$dir ~/.config/$dir
+  ln -sf ~/.config/$dir $pwd/$dir 
 done
 
 # There is now left: dunstrc, .zshrc, sxhdrc
@@ -53,7 +53,7 @@ for conf in $config_files; do
     echo "Creating config directory for $dir..."
     mkdir -p $HOME/.config/$dir
   else
-    echo "${GREEN}->${NC} Directory $dir already exists"
+    echo -e "${GREEN}->${NC} Directory $dir already exists"
   fi
 done
 
@@ -62,13 +62,13 @@ done
 for dir in $directories; do
   if [ ! -d $HOME$pwd/.config/$dir]; then
     echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
-    ln -sf $pwd/$dir ~/.config/$dir
+    ln -sf ~/.config/$dir $pwd/$dir 
   fi
 done
 
-ln -sf $pwd/sxhdrc $HOME/.config/sxhkd/sxhkdrc
-ln -sf $pwd/dunstrc $HOME/.config/dunst/dunstrc
-ln -sf $pwd/zsh_config/.zshrc $HOME/.zshrc
+ln -sf $HOME/.config/sxhkd/sxhkdrc $pwd/sxhdrc 
+ln -sf $HOME/.config/dunst/dunstrc $pwd/dunstrc 
+ln -sf $HOME/.zshrc $pwd/zsh_config/.zshrc
 
 echo
 echo "Done linking files/directories"
@@ -76,6 +76,12 @@ echo "Done linking files/directories"
 
 # Zsh config : oh-my-zsh
 echo
+echo "Configuring zsh"
+
+# Installing oh-my-zsh
+rm -rf $HOME/.config/.oh-my-zsh
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
 echo "Adding zsh plugins"
 
 # zsh-autosuggestions
