@@ -1,6 +1,6 @@
 return {
   -- Git integration
- 
+
   -- Git signs
   {
   "lewis6991/gitsigns.nvim",
@@ -16,17 +16,14 @@ return {
       numhl = false, -- Disable line number highlights
       linehl = false, -- Disable line background highlights
       current_line_blame = true, -- Show git blame inline
-      word_diff = true,
+      word_diff = false,
 
       -- Keymaps
       on_attach = function(bufnr)
         local gs = require("gitsigns")
-        local function map(mode, lhs, rhs, desc)
-          vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
-        end
         vim.keymap.set(
-          "n", "<leader>gp", 
-          gs.preview_hunk, 
+          "n", "<leader>gp",
+          gs.preview_hunk,
           {buffer=bufnr, desc="Preview Git Hunk"}
         )
 
@@ -35,9 +32,9 @@ return {
          gs.toggle_current_line_blame,
          {buffer=bufnr, desc="Toggle Line Blame"}
         )
-        
+
         vim.keymap.set(
-          "n", "<leader>gg", 
+          "n", "<leader>gg",
           gs.toggle_word_diff,
           {buffer=bufnr, desc="Toggle Word Diff"}
         )
@@ -47,6 +44,6 @@ return {
     })
   end
 },
-  
+
 }
 
