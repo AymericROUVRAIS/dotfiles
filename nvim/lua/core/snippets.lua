@@ -131,6 +131,7 @@ luasnip.add_snippets("tex", {
   \vfill
   
   % footer
+  Année 2025--2026 --- Semestre 2
   \hfill
   {\today}
 
