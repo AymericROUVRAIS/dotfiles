@@ -19,7 +19,6 @@ For latex (also needed for Neovim config):
 - pdflatex
 - texlive-langfrench
 
----
 
 ## Base config
 
@@ -29,3 +28,6 @@ I also use :
 - drawio
 - atril
 - autocpufreq
+
+## Links to used repositories
+- <a href="github.com/nobreDaniel/dotfile/tree/master/Arcade">Arcade grub theme</a>
