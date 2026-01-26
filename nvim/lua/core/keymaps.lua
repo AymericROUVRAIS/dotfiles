@@ -61,25 +61,20 @@ end)
 
 
 -- Snippets
--- local ls = require("luasnip")
--- 
--- -- Unmap tab
--- ls.config.set_config({
---   history = true,
---   updateevents = "TextChanged,TextChangedI",
--- })
--- 
--- -- Keymaps
--- vim.keymap.set({"i", "s"}, "<C-l>", function()
---   if ls.expand_or_jumpable() then
---     ls.expand_or_jump()
---   end
--- end)
--- 
--- vim.keymap.set({"i", "s"}, "<C-h>", function()
---   if ls.jumpable(-1) then
---     ls.jump(-1)
---   end
--- end)
+vim.keymap.set({ "i", "s" }, "<C-l>", function()
+  local ok, ls = pcall(require, "luasnip")
+  if not ok then return end
 
--- end
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-h>", function()
+  local ok, ls = pcall(require, "luasnip")
+  if not ok then return end
+
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end, { silent = true })
