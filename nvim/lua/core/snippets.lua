@@ -5,26 +5,6 @@ local i = luasnip.insert_node
 local rep = require("luasnip.extras").rep
 local fmta = require("luasnip.extras.fmt").fmta
 
--- Unmap tab
-luasnip.config.set_config({
-  history = true,
-  updateevents = "TextChanged,TextChangedI",
-})
-
--- Keymaps
-vim.keymap.set({"i", "s"}, "<C-l>", function()
-  if luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  end
-end)
-
-vim.keymap.set({"i", "s"}, "<C-h>", function()
-  if luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  end
-end)
-
-
 -- Define LaTeX snippets with LuaSnip
 luasnip.add_snippets("tex", {
   -- begin
@@ -48,10 +28,10 @@ luasnip.add_snippets("tex", {
   \label{fig:<label>}
 \end{figure}
 ]], {
-  path = i(1),
-  caption = i(2),
-  label = i(3),
-})),
+    path = i(1),
+    caption = i(2),
+    label = i(3),
+  })),
 
   -- fractions
   s("frac", {
@@ -75,11 +55,10 @@ luasnip.add_snippets("tex", {
 
   -- equation
   s("eq", {
-    t("\\]\n"),
+    t({ "\\]", "" }),
     i(1),
-    t("\n\\]"),
+    t({ "", "\\]" }),
   }),
-
   -- paragraph
   s("par", {
     t("\\paragraph{"), i(1, "paragraph title"), t("}")
@@ -90,6 +69,22 @@ luasnip.add_snippets("tex", {
     t("\\noindent "), i(1)
   }),
 
+  -- equation system
+  s("seq", fmta([[
+\[
+  \left\{
+  \begin{array}{r c l}
+    <eq1> &= &<r1> \\
+    <eq2> &= &<r2> \\
+  \end{array}
+  \right.
+\]
+]], {
+    eq1 = i(1),
+    r1 = i(2),
+    eq2 = i(3),
+    r2 = i(4)
+  })),
 
   -- titlepage
   s("makedoc", fmta([[
@@ -123,13 +118,13 @@ luasnip.add_snippets("tex", {
 
   % author
   {\Large Aymeric Rouvrais\\
-    professeur: <prof>, \; Informatique 
+    professeur: <prof>, \; Informatique
   1\textsuperscript{ière} année \par}
 
   \vspace{1cm}
   \rule{\textwidth}{2pt}
   \vfill
-  
+
   % footer
   Année 2025--2026 --- Semestre 2
   \hfill
@@ -138,14 +133,14 @@ luasnip.add_snippets("tex", {
 \end{titlepage}
 
 \end{document}
-]],{
-  title = i(1),
-  prof = i(2),
-})),
+]], {
+    title = i(1),
+    prof = i(2),
+  })),
 
 
   -- subfigures
-  s("subfig",fmta([[
+  s("subfig", fmta([[
 \begin{figure}[htbp]
 \centering
   \begin{subfigure}[t]{0.45\textwidth}
@@ -162,15 +157,15 @@ luasnip.add_snippets("tex", {
 \caption{<caption>}\label{fig:<label>}
 \end{figure}
 ]], {
-  path1 = i(1),
-  path2 = i(2),
-  sub_caption1 = i(3),
-  sub_caption2 = i(4),
-  caption = i(5),
-  sub_label1 = i(6),
-  sub_label2 = i(7),
-  label = i(8),
-})),
+    path1 = i(1),
+    path2 = i(2),
+    sub_caption1 = i(3),
+    sub_caption2 = i(4),
+    caption = i(5),
+    sub_label1 = i(6),
+    sub_label2 = i(7),
+    label = i(8),
+  })),
 
 
 })
