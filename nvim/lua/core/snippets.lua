@@ -92,6 +92,7 @@ luasnip.add_snippets("tex", {
 \caption{Procédure <nom>}
 \begin{algorithmic}
 \Procedure{<nom>}{<arg>}
+\Statex \textbf{début}
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
