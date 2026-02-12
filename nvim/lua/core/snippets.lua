@@ -86,6 +86,20 @@ luasnip.add_snippets("tex", {
     r2 = i(4)
   })),
 
+  -- Pseudo code
+  s("pscode", fmta([[
+\begin{algorithm}[H]
+\caption{Procédure <nom>}
+\begin{algorithmic}
+\Procedure{<nom>}{<arg>}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+]], {
+    nom = i(1),
+    arg = i(2),
+  })),
+
   -- titlepage
   s("makedoc", fmta([[
 \documentclass[openany]{article}
