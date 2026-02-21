@@ -104,24 +104,14 @@ luasnip.add_snippets("tex", {
   -- titlepage
   s("makedoc", fmta([[
 \documentclass[openany]{article}
-
-\usepackage[french]{babel}
-\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-\setlength{\parskip}{1em}
-
-% Useful packages
-\usepackage{amsmath,amsfonts}
-\usepackage{subfiles} % use multiple files
-\usepackage{graphicx} % image manipulation
-\usepackage{subcaption} % subfigure
-
+\usepackage{codepkg}
 
 
 \begin{document}
 \begin{titlepage}
   \centering
   % logos
-  \includegraphics{/home/aymeric/Documents/ENSSAT/Enssat-UnivRennes_Noir}
+  \includegraphics{~/Documents/ENSSAT/Templates/ENSSAT_logo}
 
   \vspace{1.5cm}
   \rule{\textwidth}{2pt}
