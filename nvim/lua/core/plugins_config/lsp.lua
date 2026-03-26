@@ -61,27 +61,20 @@ return {
         on_attach    = on_attach,
         settings     = {
           texlab = {
-            diagnostics = {
-              ignore = { "latex-underfull-hbox" },
-              ignoredPatterns = {
-                "You ought to remove spaces in front of punctuation",
-                "Command terminated with space",
-                ".*Underfull hbox.*"
-              },
-            },
             build = {
-              executable     = "latexmk",
-              args           = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+              executable     = "pdflatex",
+              args           = { "-interaction=nonstopmode", "-synctex=1", "%f" },
               onSave         = true,
-              forwardSearchAfter = false,
+              forwardSearchAfter = true,
             },
             forwardSearch = {
               executable = "",
               args       = { "%p" },
             },
             chktex = {
-              onOpenAndSave = true,
+              onOpenAndSave = false,
               onEdit        = false,
+              additionalArgs = { "-n8" },
             },
           },
         },
