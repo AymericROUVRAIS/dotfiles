@@ -7,7 +7,6 @@ return {
      },
      config = function()
        require("nvim-tree").setup {}
-       
        -- Keymaps
        vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
      end,
