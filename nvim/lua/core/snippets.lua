@@ -69,6 +69,17 @@ luasnip.add_snippets("tex", {
     t("\\noindent "), i(1)
   }),
 
+  -- italic
+  s("it", {
+    t("\\textit{"), i(1), t("}")
+  }),
+
+  -- bold font
+  s("bf", {
+    t("\\textbf{"), i(1), t("}")
+  }),
+
+
   -- equation system
   s("seq", fmta([[
 \[
@@ -104,7 +115,7 @@ luasnip.add_snippets("tex", {
   -- titlepage
   s("makedoc", fmta([[
 \documentclass[openany]{article}
-\usepackage{codepkg}
+\usepackage{basestyle}
 
 
 \begin{document}
