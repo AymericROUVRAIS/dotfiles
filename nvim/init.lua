@@ -5,6 +5,8 @@ require("core.snippets")
 
 -- Set colors
 vim.opt.termguicolors = true
+-- Disable mouse
+vim.opt.mouse = ""
 
 -- make Nvim transparent
 -- vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
