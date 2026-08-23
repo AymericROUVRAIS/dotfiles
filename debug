@@ -1,0 +1,69 @@
+~ $ cat ~/bspwm.log
+
+
+X.Org X Server 1.21.1.24
+X Protocol Version 11, Revision 0
+Current Operating System: Linux archiso.home 7.1.9-arch1-2 #1 SMP PREEMPT_DYNAMIC Fri, 21 Aug 2026 22:18:59 +0000 x86_64
+Kernel command line: BOOT_IMAGE=/vmlinuz-linux root=UUID=0d5fcbe1-e9c2-450c-a057-8a3006c54d51 rw loglevel=3 quiet
+
+Current version of pixman: 0.46.4
+	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+(==) Log file: "/home/aymeric/.local/share/xorg/Xorg.0.log", Time: Sun Aug 23 17:32:29 2026
+(==) Using system config directory "/usr/share/X11/xorg.conf.d"
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Multiple symbols for level 1/group 1 on key <FK23>
+>                   Using F23, ignoring XF86TouchpadOff
+> Warning:          Symbol map for key <FK23> redefined
+>                   Using last definition for conflicting fields
+> Warning:          Symbol map for key <FK24> redefined
+>                   Using last definition for conflicting fields
+> Warning:          Could not resolve keysym XF86ElectronicPrivacyScreenOn
+> Warning:          Could not resolve keysym XF86ElectronicPrivacyScreenOff
+> Warning:          Could not resolve keysym XF86ActionOnSelection
+> Warning:          Could not resolve keysym XF86ContextualInsert
+> Warning:          Could not resolve keysym XF86ContextualQuery
+Errors from xkbcomp are not fatal to the X server
+/home/aymeric/.config/bspwm/bspwmrc: line 34: xrandr: command not found
+config: focused_border_color: Invalid value: ''.
+config: normal_border_color: Invalid value: ''.
+config: active_border_color: Invalid value: ''.
+config: presel_feedback_color: Invalid value: ''.
+config: Unknown setting: 'paddingless_monocle'.
+/home/aymeric/.config/bspwm/bspwmrc: line 146: lsusb: command not found
+/home/aymeric/.config/bspwm/bspwmrc: line 154: xsetroot: command not found
+/home/aymeric/.config/bspwm/bspwmrc: line 158: xrandr: command not found
+/home/aymeric/.config/bspwm/bspwmrc: line 165: xrandr: command not found
+/home/aymeric/.config/bspwm/bspwmrc: line 168: /home/aymeric/.config/polybar/themes/ricing/launch.sh: Permission denied
+/home/aymeric/.config/bspwm/bspwmrc: line 182: dunst: command not found
+No keycodes found for keysym 178.
+Hotkey interference found and may not be matched: 'super + shift + ampersand' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+No keycodes found for keysym 233.
+No keycodes found for keysym 233.
+Hotkey interference found and may not be matched: 'super + shift + quotedbl' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+Hotkey interference found and may not be matched: 'super + shift + apostrophe' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+Hotkey interference found and may not be matched: 'super + shift + apostrophe' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+Hotkey interference found and may not be matched: 'super + shift + parenleft' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+No keycodes found for keysym 232.
+No keycodes found for keysym 232.
+Hotkey interference found and may not be matched: 'super + underscore' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+Hotkey interference found and may not be matched: 'super + shift + underscore' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+Hotkey interference found and may not be matched: 'super + shift + underscore' (from 'super + {_,shift + }{ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore}').
+Hotkey interference found and may not be matched: 'super + space' (from 'super + space').
+Hotkey interference found and may not be matched: 'super + shift + space' (from 'super + shift + space').
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Multiple symbols for level 1/group 1 on key <FK23>
+>                   Using F23, ignoring XF86TouchpadOff
+> Warning:          Symbol map for key <FK23> redefined
+>                   Using last definition for conflicting fields
+> Warning:          Symbol map for key <FK24> redefined
+>                   Using last definition for conflicting fields
+> Warning:          Could not resolve keysym XF86ElectronicPrivacyScreenOn
+> Warning:          Could not resolve keysym XF86ElectronicPrivacyScreenOff
+> Warning:          Could not resolve keysym XF86ActionOnSelection
+> Warning:          Could not resolve keysym XF86ContextualInsert
+> Warning:          Could not resolve keysym XF86ContextualQuery
+Errors from xkbcomp are not fatal to the X server
