@@ -43,7 +43,7 @@ done
 
 for dir in $directories; do
   echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
-  ln -sf ~/.config/$dir $pwd/$dir 
+  ln -sf $PWD/$dir ~/.config/$dir
 done
 
 # There is now left: dunstrc, .zshrc, sxhdrc
@@ -62,13 +62,13 @@ done
 for dir in $directories; do
   if [ ! -d $HOME$pwd/.config/$dir]; then
     echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
-    ln -sf ~/.config/$dir $pwd/$dir 
+    ln -sf $PWD/$dir ~/.config/$dir
   fi
 done
 
-ln -sf $HOME/.config/sxhkd/sxhkdrc $pwd/sxhdrc 
-ln -sf $HOME/.config/dunst/dunstrc $pwd/dunstrc 
-ln -sf $HOME/.zshrc $pwd/zsh_config/.zshrc
+ln -sf $PWD/sxhdrc $HOME/.config/sxhkd/sxhkdrc
+ln -sf $PWD/dunstrc $HOME/.config/dunst/dunstrc
+ln -sf $PWD/zsh_config/.zshrc $HOME/.zshrc
 
 echo
 echo "Done linking files/directories"
