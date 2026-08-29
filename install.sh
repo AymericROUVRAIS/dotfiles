@@ -60,7 +60,7 @@ done
 
 # Linking config directories and files
 for dir in $directories; do
-  if [ ! -d $HOME$pwd/.config/$dir]; then
+  if [ ! -d $HOME/.config/$dir ]; then
     echo -e "Linking the directories to ${GREEN}dotfiles${NC} repository"
     ln -sf $PWD/$dir ~/.config/$dir
   fi
@@ -93,7 +93,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting \
 
 
 echo "Adding zsh theme"
-cp $pwd/zsh_config/custom.zsh-theme ~/.oh-my-zsh/themes/
+cp $PWD/zsh_config/custom.zsh-theme ~/.oh-my-zsh/themes/
 
 
 # alacritty colorscheme
