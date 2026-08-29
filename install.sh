@@ -21,7 +21,8 @@ echo -e "${GREEN}Installation the full Arch config${NC}"
 # Variables for shorter commands
 packages="bspwm zsh alacritty neovim polybar brightnessctl \
   pulsemixer openfortivpn onlyoffice-bin drawio-desktop dunst \
-  texlive-most texlive-langfrench atril htop"
+  texlive-most texlive-langfrench atril htop wget git htop \
+  ttf-nerd-fonts-symbols ttf-jetbrains-mono-nerd"
 directories="nvim alacritty bspwm polybar"
 config_files="dunst sxhkd"
 
