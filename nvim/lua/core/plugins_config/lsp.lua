@@ -21,7 +21,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed   = { "texlab", "lua_ls", "pyright" },
+        ensure_installed   = { "texlab", "lua_ls", "clangd"},
         automatic_installation = true,
       })
     end,
