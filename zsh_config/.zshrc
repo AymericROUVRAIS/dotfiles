@@ -1,15 +1,15 @@
 # Path to your oh-my-zsh installation
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=/home/aymeric/.oh-my-zsh
 
 # Theme (you can change to agnoster, avit, ys, etc.)
-ZSH_THEME="custom"
+ZSH_THEME=custom
 
 # Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting arduino-cli sudo)
-
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo arduino-cli archlinux copyfile)
 
 # Load Oh My Zsh
-source $ZSH/oh-my-zsh.sh
+source /home/aymeric/.oh-my-zsh/oh-my-zsh.sh
+
 # Enable autosuggestions in grey
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
