@@ -100,7 +100,8 @@ cp $PWD/zsh_config/custom.zsh-theme ~/.oh-my-zsh/themes/
 echo
 echo -e "Adding catppuccin theme to ${GREEN}alacritty${NC}"
 
-curl -LO --output-dir ~/.config/alacritty/colorscheme https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
+mkdir -p ~/.config/alacritty/colorschemes
+curl -LO --output-dir ~/.config/alacritty/colorschemes https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
 curl -LO --output-dir ~/.config/alacritty/colorschemes https://github.com/catppuccin/alacritty/raw/main/catppuccin-macchiato.toml
 
 
