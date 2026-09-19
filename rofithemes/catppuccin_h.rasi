@@ -1,0 +1,63 @@
+/**
+ * Inspired by : dmenu by QBall
+ * User: Aymeric Rouvrais
+ */
+
+* {
+  bg0:  #24273a;
+  bg1:  #232634;
+  bg2:  #232634;
+  fg0:  #c0caf5;
+
+  peach:  #fe640b;
+  teal:   #179299;
+  accent: @teal;
+  urgent: @peach;
+
+  text-color      : @fg0;
+  background-color: @bg0;
+  font:  "Times New Roman 12";
+}
+window {
+  anchor:       north;
+  location:     north;
+  width:        100%;
+  padding:      5px;
+  border:       1px;
+  border-color: @bg2;
+  children:   [ horibox ];
+}
+horibox {
+  orientation: horizontal;
+  children:   [ entry, listview ];
+}
+listview {
+  layout:     horizontal;
+  spacing:    5px;
+  lines:      100;
+}
+entry {
+  expand:     false;
+  width:      3em;
+}
+element {
+  padding: 0px 2px;
+}
+element selected {
+  text-color: @bg1;
+  background-color: @accent;
+}
+element normal urgent {
+  text-color: @urgent;
+}
+element normal active {
+  text-color: @accent;
+}
+element alternate active {
+  text-color: @accent;
+}
+
+element-text, element-icon {
+  background-color: inherit;
+  text-color: inherit;
+}
