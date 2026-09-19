@@ -154,7 +154,7 @@ if lsusb | grep -iq 'keyboard'; then
 fi
 
 
-
+setxkbmap fr
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr
 
@@ -177,7 +177,8 @@ fi
 
 picom -b
 # Random background
-feh --randomize --bg-scale /usr/share/backgrounds/*
+# feh --randomize --bg-scale /usr/share/backgrounds/*
+feh --bg-fill /usr/share/backgrounds/gnome/map-d.svg
 
 # Make Super_L open rofi_launcher when tapped alone
 xcape -e 'Super_L=Alt_L|F1' &
