@@ -5,7 +5,7 @@ export ZSH=/home/aymeric/.oh-my-zsh
 ZSH_THEME=custom
 
 # Plugins
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo arduino-cli archlinux copyfile)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo arduino-cli copyfile)
 
 # Load Oh My Zsh
 source /home/aymeric/.oh-my-zsh/oh-my-zsh.sh
