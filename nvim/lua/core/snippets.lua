@@ -40,7 +40,7 @@ luasnip.add_snippets("tex", {
 
   -- somme
   s("sum", {
-    t("\\sum_{"), i(1, "i="), t("}^{"), i(2, "denominator"), t("}")
+    t("\\sum_{"), i(1, "i=1"), t("}^{"), i(2, "n"), t("}")
   }),
 
   -- dérivé partiel
@@ -55,7 +55,7 @@ luasnip.add_snippets("tex", {
 
   -- equation
   s("eq", {
-    t({ "\\]", "" }),
+    t({ "\\[", "" }),
     i(1),
     t({ "", "\\]" }),
   }),
