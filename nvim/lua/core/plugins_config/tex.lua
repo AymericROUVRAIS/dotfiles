@@ -1,5 +1,5 @@
 return{
-  
+
   -- Compilation and PDF preview
   {"lervag/vimtex",
   lazy = false,
@@ -15,7 +15,7 @@ return{
     vim.g.vimtex_compiler_latexmk = {
       executable = 'latexmk',
       options = {
-        '-pdf',
+        -- '-lualatex',
         '-interaction=nonstopmode',
         '-shell-escape'
       }
@@ -60,7 +60,6 @@ return{
       })
     end
     },
-   
   },
 
   -- Snippets for LaTeX
