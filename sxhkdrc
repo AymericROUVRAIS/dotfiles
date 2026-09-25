@@ -101,7 +101,7 @@ super + shift + p
 
 # Hide/Unhide Window
 super + shift + h
-  ~/.local/bin/window_hide.sh
+  ~/.local/bin/bsphide.sh
 
 # Go to last workspace
 super + twosuperior
