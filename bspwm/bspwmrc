@@ -86,6 +86,8 @@ bspc rule -r *:*
 bspc rule -a Alacritty desktop='^1' follow=on focus=on
 bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
+bspc rule -a Gtkwave state=floating follow=on window_type=dialog
+
 ## 2 > code
 declare -a code=(code-oss neovim arduino-ide)
 for i in ${code[@]}; do
@@ -112,6 +114,7 @@ bspc rule -a Thunderbird desktop="$r6" follow=on focus=on
 bspc rule -a discord desktop="$r6" follow=on focus=on
 # Don't follow when discord opens
 bspc rule -a discord:discord state=floating follow=off window_type=dialog
+bspc rule -a 'Discord Updater' state=floating follow=off window_type=dialog
 
 ## 7 > media
 declare -a media=(Audacity Deezer Music MPlayerc Inkscape Gimp)
