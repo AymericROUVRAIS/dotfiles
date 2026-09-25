@@ -47,5 +47,5 @@ export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='mt-1;32'
 
 # Source custom aliases or scripts (optional)
-# source ~/.zsh_aliases
+source ~/.zsh_aliases
 
