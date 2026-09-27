@@ -1,35 +1,11 @@
 /**
- * User : Aymeric Rouvrais
- * Theme inspired by simple-tokyonight
- * From : github: https://github.com/newmanls/rofi-themes-collection
-*/
-* {
-  font:   "Iosevka Nerd Font Medium 13";
+ * Author : Aymeric Rouvrais
+ * Desc : Vertical window on the left
+ * From : Theme inspired by simple-tokyonight
+ * Link : github: https://github.com/newmanls/rofi-themes-collection
+ */
 
-  bg0     : #24273a;
-  bg1     : #292c3c;
-  bg2     : #24283b;
-  bg3     : #232634;
-  fg0     : #c0caf5;
-  fg1     : #a9b1d6;
-  fg2     : #737994;
-  red     : #ed8796;
-  teal    : #179299;
-  peach   : #fe640b;
-  accent: @teal;
-  urgent: @peach;
-
-  background-color : transparent;
-  text-color       : @fg0;
-
-  margin  : 0;
-  padding : 0;
-  spacing : 0;
-}
-
-element-icon, element-text, scrollbar {
-  cursor: pointer;
-}
+@import "catppuccin_macchiato"
 
 window {
   location : northwest;
@@ -64,7 +40,7 @@ icon-search {
 
 textbox {
   padding          : 4px 8px;
-  background-color : @bg2;
+  background-color : @bg3;
 }
 
 listview {
@@ -104,14 +80,11 @@ element selected urgent {
 
 element-icon {
   size: 0.8em;
+  cursor: pointer;
 }
 
 element-text {
   text-color: inherit;
+  cursor: pointer;
 }
 
-scrollbar {
-  handle-width : 4px;
-  handle-color : @fg2;
-  padding      : 0 4px;
-}

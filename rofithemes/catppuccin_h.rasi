@@ -1,23 +1,11 @@
 /**
- * Inspired by : dmenu by QBall
- * User: Aymeric Rouvrais
+ * Author : Aymeric Rouvrais
+ * Desc : Horizontal window on the top left
+ * From : dmenu by QBall
  */
 
-* {
-  bg0:  #24273a;
-  bg1:  #232634;
-  bg2:  #232634;
-  fg0:  #c0caf5;
+@import "catppuccin_macchiato"
 
-  peach:  #fe640b;
-  teal:   #179299;
-  accent: @teal;
-  urgent: @peach;
-
-  text-color      : @fg0;
-  background-color: @bg0;
-  font:  "Times New Roman 12";
-}
 window {
   anchor:       north;
   location:     north;
