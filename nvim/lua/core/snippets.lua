@@ -56,7 +56,7 @@ luasnip.add_snippets("tex", {
   -- equation
   s("eq", {
     t({ "\\[", "" }),
-    i(1),
+    t(" "),i(1),
     t({ "", "\\]" }),
   }),
   -- paragraph
