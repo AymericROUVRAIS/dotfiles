@@ -89,7 +89,7 @@ bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 bspc rule -a Gtkwave state=floating follow=on window_type=dialog
 
 ## 2 > code
-declare -a code=(code-oss neovim arduino-ide)
+declare -a code=(code-oss neovim arduino-ide jetbrains-idea)
 for i in ${code[@]}; do
    bspc rule -a $i desktop="$r2" follow=on focus=on; done
 
