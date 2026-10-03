@@ -9,64 +9,34 @@
 
 window {
   location : northwest;
-  height   : 100%;
-  width    : 280px;
-  x-offset : 4px;
-  y-offset : 26px;
-
-  background-color: @bg1;
-  border: 1px;
-  border-color: @bg3;
-  border-radius: 6px;
+  width:        300px;
+  padding:      5px;
+  border:       1px;
+  border-color: @bg2;
+  children:   [ horibox ];
 }
 
-inputbar {
-  spacing  : 8px;
-  padding  : 4px 8px;
-  children : [ icon-search, entry ];
-
-  background-color: @bg0;
-}
-
-icon-search, entry, element-icon, element-text {
-  vertical-align: 0.5;
-}
-
-icon-search {
-  expand   : false;
-  filename : "search-symbolic";
-  size     : 14px;
-}
-
-textbox {
-  padding          : 4px 8px;
-  background-color : @bg3;
+horibox {
+  children:   [ entry, listview ];
 }
 
 listview {
-  padding      : 4px 0px;
-  lines        : 12;
-  columns      : 1;
-  scrollbar    : true;
-  fixed-height : false;
-  dynamic      : true;
+  spacing:    5px;
+  lines:      100;
+}
+
+entry {
+  expand:     false;
+  width:      3em;
 }
 
 element {
-  padding : 4px 8px;
-  spacing : 8px;
+  padding: 4px 8px;
+  spacing: 8px;
 }
 
-element normal urgent {
-  text-color: @urgent;
-}
-
-element normal active {
-  text-color: @accent;
-}
-
-element alternate active {
-  text-color: @accent;
+element {
+  padding: 0px 2px;
 }
 
 element selected {
@@ -74,17 +44,15 @@ element selected {
   background-color : @accent;
 }
 
-element selected urgent {
-  background-color: @urgent;
+element normal urgent {
+  text-color: @urgent;
 }
 
-element-icon {
-  size: 0.8em;
-  cursor: pointer;
+element normal active, element alternative active {
+  text-color: @accent;
 }
 
-element-text {
+element-text, element-icon {
+  background-color: inherit;
   text-color: inherit;
-  cursor: pointer;
 }
-

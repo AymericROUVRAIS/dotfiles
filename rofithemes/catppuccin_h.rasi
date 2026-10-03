@@ -15,33 +15,42 @@ window {
   border-color: @bg2;
   children:   [ horibox ];
 }
+
 horibox {
   orientation: horizontal;
   children:   [ entry, listview ];
 }
+
 listview {
   layout:     horizontal;
   spacing:    5px;
   lines:      100;
 }
+
 entry {
   expand:     false;
   width:      3em;
 }
+
+element {
+  padding: 4px 8px;
+  spacing: 8px;
+}
+
 element {
   padding: 0px 2px;
 }
+
 element selected {
-  text-color: @bg1;
-  background-color: @accent;
+  text-color       : @bg1;
+  background-color : @accent;
 }
+
 element normal urgent {
   text-color: @urgent;
 }
-element normal active {
-  text-color: @accent;
-}
-element alternate active {
+
+element normal active, element alternative active {
   text-color: @accent;
 }
 
