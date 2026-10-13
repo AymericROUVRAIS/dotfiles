@@ -135,14 +135,14 @@ luasnip.add_snippets("tex", {
   % author
   {\Large Aymeric Rouvrais\\
     professeur: <prof>, \; Informatique
-  1\textsuperscript{ière} année \par}
+  2\textsuperscript{ème} année \par}
 
   \vspace{1cm}
   \rule{\textwidth}{2pt}
   \vfill
 
   % footer
-  Année 2025--2026 --- Semestre 2
+  Année 2026--2027 --- Semestre 1
   \hfill
   {\today}
 
