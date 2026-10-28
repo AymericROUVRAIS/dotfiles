@@ -187,7 +187,7 @@ feh --bg-fill /usr/share/backgrounds/gnome/map-d.svg
 xcape -e 'Super_L=Alt_L|F1' &
 xcape -e 'Super_R=Alt_L|F1' &
 # Enable power management
-xfce4-power-manager &
+xss-lock --transfer-sleep-lock -- slock &
 # Notification daemon
 dunst &
 
