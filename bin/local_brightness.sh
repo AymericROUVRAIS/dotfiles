@@ -13,4 +13,5 @@ case "$1" in
     ;;
 esac
 
-brightnessctl -m | grep -o '[0-9]\+%' | tr -d '%'
+val="$(brightnessctl -m | grep -o '[0-9]\+%' | tr -d '%')"
+dunstify "" -a Brightness -h int:value:$val
