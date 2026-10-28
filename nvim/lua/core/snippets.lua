@@ -196,6 +196,24 @@ luasnip.config.set_config({
 
 
 
+
+-- LIBRARY IEEE;
+-- USE IEEE.STD_LOGIC_1164.ALL;
+-- USE IEEE.NUMERIC_STD.ALL ;
+--
+-- ENTITY  IS
+--   PORT (
+--   );
+-- END seven_segment;
+--
+-- ARCHITECTURE arch OF  IS
+--
+--  
+-- BEGIN
+--
+--
+-- END arch;
+
 -- Create custom autocompletion
 local cmp = require('cmp')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
