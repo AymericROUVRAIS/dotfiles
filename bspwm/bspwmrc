@@ -32,8 +32,10 @@ r8='^8'
 
 # Creating workspace
 if xrandr -q | grep -q 'HDMI-1 connected'; then
-    bspc monitor 'HDMI-1' -d '' '' '' '' 
-    bspc monitor 'eDP-1' -d '' '' '' ''
+    bspc monitor 'HDMI-1' -d '1' '2' '3' '4' 
+    bspc monitor 'eDP-1' -d '5' '6' '7' '8'
+    # bspc monitor 'HDMI-1' -d '' '' '' '' 
+    # bspc monitor 'eDP-1' -d '' '' '' ''
     bspc wm -O 'HDMI-1' 'eDP-1'
     # No gap with polybar in monocle
     bspc config gapless_monocle true
@@ -86,7 +88,8 @@ bspc rule -r *:*
 bspc rule -a Alacritty desktop='^1' follow=on focus=on
 bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
-bspc rule -a Gtkwave state=floating follow=on window_type=dialog
+bspc rule -a Gtkwave state=floating follow=on
+bspc rule -a flameshot state=floating follow=on window_type=dialog
 
 ## 2 > code
 declare -a code=(code-oss neovim arduino-ide jetbrains-idea)
@@ -102,7 +105,7 @@ for i in ${files[@]}; do
    bspc rule -a $i desktop="$r4" follow=on focus=on; done
 
 ## 5 > office and docs
-declare -a office=(Gucharmap Atril Evince Drawio \
+declare -a office=(Gucharmap Atril Evince drawio draw.io\
 libreoffice-writer libreoffice-calc libreoffice-impress \
 libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice onlyoffice-desktopeditors ONLYOFFICE)
 for i in ${office[@]}; do
@@ -158,6 +161,7 @@ fi
 
 
 setxkbmap fr
+xrdb -merge ~/.Xresources
 pgrep -x sxhkd > /dev/null || sxhkd &
 xsetroot -cursor_name left_ptr
 
