@@ -50,11 +50,12 @@ case "$1" in
 esac
 
 if ((new_volume != 0)); then
-  if ((new_volume < 30)); then
-    dunstify "" -a Volume -h int:value:$new_volume -i volume-low
-  elif ((new_volume < 60)); then
-    dunstify "" -a Volume -h int:value:$new_volume -i volume-medium
-  else
-    dunstify "" -a Volume -h int:value:$new_volume -i volume-high
-  fi
+  dunstify "" -a Volume -h int:value:$new_volume -i volume
+#   if ((new_volume < 30)); then
+#     dunstify "" -a Volume -h int:value:$new_volume -i volume-low
+#   elif ((new_volume < 60)); then
+#     dunstify "" -a Volume -h int:value:$new_volume -i volume-medium
+#   else
+#     dunstify "" -a Volume -h int:value:$new_volume -i volume-high
+#   fi
 fi
